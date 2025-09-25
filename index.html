@@ -302,14 +302,19 @@
 <!-- End paper abstract -->
 
 
-<!-- Image carousel -->
+<!-- Image carousel (title changes with slide) -->
 <section class="hero is-small">
   <div class="hero-body">
-    <h2 class="title is-3">Non-unification Phenomenon is Pervasive in Unified MLLMs</h2>
+    <!-- 标题：给它一个 id 以便脚本更新 -->
+    <h2 id="carousel-title" class="title is-3">
+      Non-unification Phenomenon is Pervasive in Unified MLLMs
+    </h2>
+
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
         
-        <div class="item">
+        <!-- Slide 1 -->
+        <div class="item" data-title="Non-unification Phenomenon is Pervasive in Unified MLLMs">
           <img src="static/images/nonunification_single.png" 
                alt="Verification of internal gaps" loading="lazy"/>
           <h2 class="subtitle has-text-centered">
@@ -317,11 +322,12 @@
           </h2>
         </div>
         
-        <div class="item">
+        <!-- Slide 2 -->
+        <div class="item" data-title="Internal gap mainly stems from weak generation instead of misunderstanding">
           <img src="static/images/carousel2.jpg" 
-               alt="Second research result visualization" loading="lazy"/>
+               alt="Weak generation explanation" loading="lazy"/>
           <h2 class="subtitle has-text-centered">
-            Second image description.
+            Internal gap mainly stems from weak generation instead of misunderstanding.
           </h2>
         </div>
 
@@ -497,6 +503,43 @@
 <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
     <!-- End of Statcounter Code -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.querySelector('#results-carousel');
+  var titleEl = document.getElementById('carousel-title');
+  if (!el || !titleEl) return;
 
+  // 若页面其他地方尚未初始化 carousel，这里初始化一次
+  if (typeof bulmaCarousel !== 'undefined') {
+    bulmaCarousel.attach('#results-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      infinite: false
+    });
+  }
+
+  // 取到已初始化的实例（bulmaCarousel 全局会缓存）
+  var instances = (typeof bulmaCarousel !== 'undefined') ? bulmaCarousel.instances : [];
+  if (!instances || !instances.length) return;
+
+  var carousel = instances.find(function (inst) {
+    return inst.element && inst.element.id === 'results-carousel';
+  }) || instances[0];
+
+  // 初始标题
+  var items = el.querySelectorAll('.item');
+  if (items.length && items[0].dataset.title) {
+    titleEl.textContent = items[0].dataset.title;
+  }
+
+  // 切换后更新标题
+  carousel.on('after:show', function (state) {
+    var idx = state.page; // 0-based
+    if (items[idx] && items[idx].dataset.title) {
+      titleEl.textContent = items[idx].dataset.title;
+    }
+  });
+});
+</script>
   </body>
   </html>
