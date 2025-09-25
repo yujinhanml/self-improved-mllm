@@ -302,27 +302,34 @@
 <!-- End paper abstract -->
 
 
-<!-- Teaser Image -->
+<!-- Image carousel -->
 <section class="hero is-small">
   <div class="hero-body">
+    <h2 class="title is-3">Non-unification Phenomenon is Pervasive in Unified MLLMs</h2>
     <div class="container">
-      <h2 class="title is-3">Non-unification Phenomenon is Pervasive in Unified MLLMs</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <figure>
-            <img src="static/images/nonunification_single.png"
-                 alt="MLLMs' internal gap"
-                 style="max-width:100%;height:auto;">
-            <figcaption class="subtitle" style="margin-top:.75rem;">
-              Verification of internal gaps. (a) and (b) identify task difficulty as a confounder in measuring non-unification score (Non.): easy tasks may underestimate the gap, while hard tasks risk overestimation. Stratifying by task difficulty (Easy–Medium–Hard) yields a more reliable estimation. (c) Evaluation of six MLLMs across  three difficulty levels shows unified MLLMs remain non-unified, with non-unification scores approaching 60%. 
-            </figcaption>
-          </figure>
+      <div id="results-carousel" class="carousel results-carousel">
+        
+        <div class="item">
+          <img src="static/images/nonunification_single.png" 
+               alt="Verification of internal gaps" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            Verification of internal gaps. (a) and (b) identify task difficulty as a confounder in measuring non-unification score (Non.): easy tasks may underestimate the gap, while hard tasks risk overestimation. Stratifying by task difficulty (Easy–Medium–Hard) yields a more reliable estimation. (c) Evaluation of six MLLMs across three difficulty levels shows unified MLLMs remain non-unified, with non-unification scores approaching 60%.
+          </h2>
         </div>
-      </div>
-    </div>
-  </div>
+        
+        <div class="item">
+          <img src="static/images/carousel2.jpg" 
+               alt="Second research result visualization" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            Second image description.
+          </h2>
+        </div>
+
+      </div> <!-- end results-carousel -->
+    </div>   <!-- end container -->
+  </div>     <!-- end hero-body -->
 </section>
-<!-- End Teaser Image -->
+<!-- End image carousel -->
 
 
     
