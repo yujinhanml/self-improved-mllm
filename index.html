@@ -305,7 +305,7 @@
 <!-- Image carousel (title changes with slide) -->
 <section class="hero is-small">
   <div class="hero-body">
-    <!-- 动态标题：给它一个唯一 id -->
+    <!-- 标题：给它一个 id，供脚本更新 -->
     <h2 id="carousel-title-1" class="title is-3">
       Non-unification Phenomenon is Pervasive in Unified MLLMs
     </h2>
@@ -313,7 +313,7 @@
     <div class="container">
       <div id="results-carousel-1" class="carousel results-carousel">
         
-        <!-- Slide 1 -->
+        <!-- Slide 1：在 data-title 中放标题文本 -->
         <div class="item" data-title="Non-unification Phenomenon is Pervasive in Unified MLLMs">
           <img src="static/images/nonunification_single.png" 
                alt="Verification of internal gaps" loading="lazy"/>
@@ -322,7 +322,7 @@
           </h2>
         </div>
         
-        <!-- Slide 2 -->
+        <!-- Slide 2：切到这一页时，标题会自动换成下方 data-title 的内容 -->
         <div class="item" data-title="Internal gap mainly stems from weak generation instead of misunderstanding">
           <img src="static/images/carousel2.jpg" 
                alt="Weak generation explanation" loading="lazy"/>
@@ -335,7 +335,6 @@
     </div>   <!-- end container -->
   </div>     <!-- end hero-body -->
 </section>
-<!-- End image carousel -->
 
 
 
@@ -504,42 +503,36 @@
 <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
     <!-- End of Statcounter Code -->
+<!-- 放在 </body> 前；确保已引入 bulma-carousel.min.js -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  var el = document.querySelector('#results-carousel');
-  var titleEl = document.getElementById('carousel-title');
+  if (typeof bulmaCarousel === 'undefined') return;
+
+  // 初始化该轮播
+  bulmaCarousel.attach('#results-carousel-1', { slidesToScroll: 1, slidesToShow: 1, infinite: false });
+
+  const el = document.querySelector('#results-carousel-1');
+  const titleEl = document.getElementById('carousel-title-1');
   if (!el || !titleEl) return;
 
-  // 若页面其他地方尚未初始化 carousel，这里初始化一次
-  if (typeof bulmaCarousel !== 'undefined') {
-    bulmaCarousel.attach('#results-carousel', {
-      slidesToScroll: 1,
-      slidesToShow: 1,
-      infinite: false
-    });
-  }
-
-  // 取到已初始化的实例（bulmaCarousel 全局会缓存）
-  var instances = (typeof bulmaCarousel !== 'undefined') ? bulmaCarousel.instances : [];
-  if (!instances || !instances.length) return;
-
-  var carousel = instances.find(function (inst) {
-    return inst.element && inst.element.id === 'results-carousel';
-  }) || instances[0];
+  // 获取实例
+  const inst = bulmaCarousel.instances.find(inst => inst.element && inst.element.id === 'results-carousel-1');
 
   // 初始标题
-  var items = el.querySelectorAll('.item');
+  const items = el.querySelectorAll('.item');
   if (items.length && items[0].dataset.title) {
     titleEl.textContent = items[0].dataset.title;
   }
 
   // 切换后更新标题
-  carousel.on('after:show', function (state) {
-    var idx = state.page; // 0-based
-    if (items[idx] && items[idx].dataset.title) {
-      titleEl.textContent = items[idx].dataset.title;
-    }
-  });
+  if (inst) {
+    inst.on('after:show', function (state) {
+      const idx = state.page; // 0-based
+      if (items[idx] && items[idx].dataset.title) {
+        titleEl.textContent = items[idx].dataset.title;
+      }
+    });
+  }
 });
 </script>
   </body>
