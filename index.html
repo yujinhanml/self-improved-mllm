@@ -465,7 +465,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   if (typeof bulmaCarousel === 'undefined') return;
 
-  // 1) 初始化并拿到实例（attach 会返回实例数组）
+  // 初始化并拿到实例
   const instances = bulmaCarousel.attach('#results-carousel-1', {
     slidesToScroll: 1,
     slidesToShow: 1,
@@ -474,26 +474,37 @@ document.addEventListener("DOMContentLoaded", function () {
   const inst = instances && instances[0];
   if (!inst) return;
 
-  // 2) 要操作的元素
-  const el = document.getElementById('results-carousel-1');
+  const root = document.getElementById('results-carousel-1');
   const titleEl = document.getElementById('carousel-title-1');
-  if (!el || !titleEl) return;
+  if (!root || !titleEl) return;
 
-  // 3) 初始标题
-  const items = el.querySelectorAll('.item');
-  if (items.length && items[0].dataset.title) {
-    titleEl.textContent = items[0].dataset.title;
+  // 从当前激活的 slide 读取 data-title（兼容不同版本结构）
+  function updateTitleFromActive() {
+    // bulma-carousel 会包一层 .carousel-item.is-active
+    const active = root.querySelector('.carousel-item.is-active .item')
+                 || root.querySelector('.item'); // 兜底
+    if (active && active.dataset && active.dataset.title) {
+      titleEl.textContent = active.dataset.title;
+    }
   }
 
-  // 4) 轮播后更新标题
-  inst.on('after:show', function (state) {
-    const idx = state.page; // 0-based
-    if (items[idx] && items[idx].dataset.title) {
-      titleEl.textContent = items[idx].dataset.title;
+  // 初始设置
+  updateTitleFromActive();
+
+  // 监听不同版本可能触发的事件
+  inst.on('after:show', updateTitleFromActive);
+  inst.on('after:slide', updateTitleFromActive);
+
+  // 保险：左右箭头点击时也更新一次（有些版本只触发 click）
+  root.addEventListener('click', function (e) {
+    if (e.target.closest('.carousel-nav') || e.target.closest('.carousel-pagination')) {
+      // 下一帧读取，确保切换完成
+      setTimeout(updateTitleFromActive, 0);
     }
   });
 });
 </script>
+
 
   </body>
   </html>
