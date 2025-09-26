@@ -332,7 +332,7 @@
         
         <!-- 图片说明 -->
         <h3 class="has-text-centered is-size-8" style="margin-top: .75rem;">
-          Illustration of MLLMs' internal gap. We examine challenging cases involving implicit 
+          <span class="has-text-weight-bold has-text-link">Illustration of MLLMs' internal gap.</span> We examine challenging cases involving implicit 
           physical principles using ChatGPT o3 and Gemini 2.5 Flash, and find: images produced 
           by generation branch are identified as incorrect by understanding branch, showing 
           non-unification.
@@ -401,7 +401,7 @@
           <img src="static/images/nonunification_single.png" 
                alt="Verification of internal gaps" loading="lazy"/>
           <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
-            <span class="has-text-weight-bold">Verification of internal gaps.</span> (a) and (b) identify task difficulty as a confounder in measuring non-unification score (Non.): easy tasks may underestimate the gap, while hard tasks risk overestimation. Stratifying by task difficulty (Easy–Medium–Hard) yields a more reliable estimation. (c) Evaluation of six MLLMs across three difficulty levels shows unified MLLMs remain non-unified, with non-unification scores approaching 60%.
+            <span class="has-text-weight-bold has-text-link">Verification of internal gaps.</span> (a) and (b) identify task difficulty as a confounder in measuring non-unification score (Non.): easy tasks may underestimate the gap, while hard tasks risk overestimation. Stratifying by task difficulty (Easy–Medium–Hard) yields a more reliable estimation. (c) Evaluation of six MLLMs across three difficulty levels shows unified MLLMs remain non-unified, with non-unification scores approaching 60%.
           </h2>
         </div>
         
@@ -410,7 +410,7 @@
           <img src="static/images/reason.png" 
                alt="Weak generation explanation" loading="lazy"/>
           <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
-            <span class="has-text-weight-bold">Internal gap mainly stems from weak generation instead of misunderstanding.</span> Weak-generation (Qwen/Human-checked) above 50% (even 100%) indicate internal gap mainly stems from weak generation.
+            <span class="has-text-weight-bold has-text-link">Internal gap mainly stems from weak generation instead of misunderstanding.</span> Weak-generation (Qwen/Human-checked) above 50% (even 100%) indicate internal gap mainly stems from weak generation.
           </h2>
         </div>
 
@@ -434,19 +434,14 @@
         </h2>
         <div class="title-underline has-text-link"></div>
 
-        <!-- 图片 -->
-        <img src="static/images/alg1.png" alt="MLLMs' internal gap" style="margin-top: 1rem;"/>
+        <!-- 图片（缩小到 70% 宽度并居中） -->
+        <img src="static/images/alg1.png" alt="MLLMs' internal gap" 
+             style="margin-top: 1rem; max-width: 70%; height: auto;"/>
 
         <!-- 浅蓝色背景卡片 -->
         <div class="box" style="background-color: #f8f9ff; border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem;">
           <h2 class="subtitle has-text-justified" style="font-size: 1rem;">
-            The observation that understanding consistently outperforms generation then motivates our 
-            <em>internal gap-based self-improvement</em> framework. Specifically, we adopt DPO and SFT. 
-            Given an image generation prompt $\\mathbf{y}$, the MLLM $\\pi_{\\theta}$ produces $N$ 
-            candidate images: $\\{\\mathbf{x}_i\\}_{i=1}^N = \\pi_{\\theta}(\\mathbf{y})$. 
-            Each candidate $\\mathbf{x}_i$ is paired with the question 
-            $q(\\mathbf{y}) \\coloneqq \\text{``Does this image describe } \\mathbf{y} \\text{?''}$ 
-            and processed by the understanding branch $\\pi^{\\text{und}}_{\\theta}$.
+            Scoring generations with stronger understanding to construct image data for post-training (e.g., SFT and DPO) on generation branch.
           </h2>
         </div>
 
@@ -455,6 +450,7 @@
   </div>
 </section>
 <!-- End Teaser Image -->
+
 
 
 
