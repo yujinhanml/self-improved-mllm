@@ -503,37 +503,39 @@
 <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
     <!-- End of Statcounter Code -->
-<!-- 放在 </body> 前；确保已引入 bulma-carousel.min.js -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   if (typeof bulmaCarousel === 'undefined') return;
 
-  // 初始化该轮播
-  bulmaCarousel.attach('#results-carousel-1', { slidesToScroll: 1, slidesToShow: 1, infinite: false });
+  // 1) 初始化并拿到实例（attach 会返回实例数组）
+  const instances = bulmaCarousel.attach('#results-carousel-1', {
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    infinite: false
+  });
+  const inst = instances && instances[0];
+  if (!inst) return;
 
-  const el = document.querySelector('#results-carousel-1');
+  // 2) 要操作的元素
+  const el = document.getElementById('results-carousel-1');
   const titleEl = document.getElementById('carousel-title-1');
   if (!el || !titleEl) return;
 
-  // 获取实例
-  const inst = bulmaCarousel.instances.find(inst => inst.element && inst.element.id === 'results-carousel-1');
-
-  // 初始标题
+  // 3) 初始标题
   const items = el.querySelectorAll('.item');
   if (items.length && items[0].dataset.title) {
     titleEl.textContent = items[0].dataset.title;
   }
 
-  // 切换后更新标题
-  if (inst) {
-    inst.on('after:show', function (state) {
-      const idx = state.page; // 0-based
-      if (items[idx] && items[idx].dataset.title) {
-        titleEl.textContent = items[idx].dataset.title;
-      }
-    });
-  }
+  // 4) 轮播后更新标题
+  inst.on('after:show', function (state) {
+    const idx = state.page; // 0-based
+    if (items[idx] && items[idx].dataset.title) {
+      titleEl.textContent = items[idx].dataset.title;
+    }
+  });
 });
 </script>
+
   </body>
   </html>
