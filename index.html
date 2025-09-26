@@ -179,18 +179,20 @@
   }
   </script>
 
-  <!-- MathJax v3: 支持 $...$ 与 \(...\) 行内公式，并启用 \text{} -->
+  <!-- MathJax v3：行内公式 \(...\) / $...$，并加载 \text{} 所需扩展 -->
   <script>
     window.MathJax = {
+      loader: { load: ['[tex]/textmacros'] },      // 真的去加载 textmacros 扩展
       tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        packages: {'[+]': ['textmacros']}  // 让 \text{} 可用
+        inlineMath: [['$', '$'], ['\\(', '\\)']],  // 行内公式分隔符
+        packages: {'[+]': ['textmacros']}         // 让 TeX 输入机认识 \text{}
       },
       svg: { fontCache: 'global' }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  
+  <script id="MathJax-script" defer
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
 
   <script>
   $(document).ready(function() {
@@ -464,8 +466,39 @@
     <!-- 卡片放在 container 下，宽度与其他一致 -->
     <div class="box" style="background-color:#f8f9ff; border-radius:12px; padding:1.5rem; margin-top:1.5rem;">
 
-      <!-- 图片（仅缩小 70%，不影响卡片宽度） -->
       <img src="static/images/find1.png" alt="MLLMs' internal gap"
+           alt="find 1" loading="lazy"/>
+
+      <!-- 说明文字 -->
+      <h2 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
+        <span class="has-text-weight-bold has-text-link">
+          Self-improvement enhances generation and unification, with gains up to 20% and 16% (1–non-unification score).
+        </span>
+        Furthermore, improvements correlate with the internal gap 
+        (correlation coefficient \( \\rho_{\\Delta,\\text{Non.}} = 0.53 \)): 
+        models and subtasks with larger gaps benefit more.
+      </h2>
+
+    </div>
+  </div>
+</section>
+<!-- End Teaser Image -->
+
+
+<!-- Teaser Image -->
+<section class="section teaser">
+  <div class="container is-max-desktop">
+
+    <!-- 标题（蓝色） -->
+    <h2 class="title is-3 has-text-link has-text-centered">
+      Experimental Finding 1: Self-improvement effectively improves generation and unification
+    </h2>
+    <div class="title-underline has-text-link"></div>
+
+    <!-- 卡片放在 container 下，宽度与其他一致 -->
+    <div class="box" style="background-color:#f8f9ff; border-radius:12px; padding:1.5rem; margin-top:1.5rem;">
+
+      <img src="static/images/find2.png" alt="MLLMs' internal gap"
            alt="find 1" loading="lazy"/>
 
       <!-- 说明文字 -->
