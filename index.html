@@ -584,6 +584,116 @@
 <!-- End Mechanism Section -->
 
 
+<!-- Improved Method -->
+<section class="section teaser">
+  <div class="container is-max-desktop">
+
+    <!-- 标题（蓝色） -->
+    <h2 class="title is-3 has-text-link has-text-centered">
+      Improved Method: Curriculum Learning for Stronger Self-Improvement
+    </h2>
+    <div class="title-underline has-text-link"></div>
+
+    <!-- 卡片包裹轮播 -->
+    <div class="box" style="background-color:#f8f9ff; border-radius:12px; padding:1.5rem; margin-top:1.5rem;">
+      <div id="results-carousel-2" class="carousel results-carousel">
+
+        <!-- Slide 1 -->
+        <div class="item" data-title="Proposition Evidence">
+          <img src="static/images/proposition 1.png" alt="Learning dynamics proposition" loading="lazy"/>
+         <h3 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
+          <span class="has-text-weight-bold has-text-link">Shared eNTK between Understanding and Generation.</span>
+          The learning dynamics of generation  \(\Delta G_t\) and understanding
+           \(\Delta U_t\) are similar. The key difference is that
+          \(\Delta U_t\) includes an additional eNTK term,
+          \(\textcolor{#ef4444}{\mathcal{K}^{\,t}_{k,r}(\mathcal{Y}_i,\mathcal{Y}_u)}\),
+          which measures alignment between \(\mathcal{Y}_i\) \((i\neq 0)\) and the post-training data
+          \(\mathcal{Y}_u\).
+        </h3>
+
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="item" data-title="Empirical Evidence">
+          <img src="static/images/evidence.png" alt="Empirical evidence of co-improvement" loading="lazy"/>
+          <h3 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
+            <span class="has-text-weight-bold has-text-link">Empirical Evidence from Self-improved Janus-Pro with SFT.</span>
+            (a) Compared to random samples, $(\mathbf{y}_0,\mathbf{x}_0)$ in the false positive correction group 
+            are more likely to be matched with highly similar post-training pairs $(\mathbf{y}_u,\mathbf{x}_u)$. 
+            (b) Such high data similarity makes $\textcolor{lightblue}{\mathcal{K}^{\,t}_{k,r}(\mathcal{Y}_0,\mathcal{Y}_u)}$ 
+            be the dominant term, thereby promoting aligned learning dynamics $\Delta G_t$ and $\Delta U_t$. 
+            (c) With aligned dynamics, $\Delta G_t < 0$ implies $\Delta U_t < 0$: both the probability of 
+            mis-generation $\pi_{\theta}(\mathbf{x}_0 \mid \mathbf{y}_0)$ and misjudging  
+            $\pi_{\theta}(\mathbf{y}_0 \mid \mathbf{x}_0)$ are reduced, i.e., false positive correction and 
+            co-improvement occur.
+          </h3>
+        </div>
+
+      </div> <!-- end carousel -->
+    </div> <!-- end box -->
+  </div>
+</section>
+<!-- End Mechanism Section -->
+
+              
+<!-- Improved Method (1/2): Curriculum Learning Overview -->
+<section class="section teaser">
+  <div class="container is-max-desktop">
+
+    <!-- 标题（蓝色） -->
+    <h2 class="title is-3 has-text-link has-text-centered">
+      Improved Method: Curriculum Learning for Stronger Self-Improvement
+    </h2>
+    <div class="title-underline has-text-link"></div>
+
+    <!-- 浅蓝色卡片 -->
+    <div class="box" style="background-color:#f8f9ff; border-radius:12px; padding:1.5rem; margin-top:1.5rem;">
+
+      <!-- 图（70% 宽） -->
+      <img src="static/images/alg2.png" alt="Curriculum learning overview"
+           style="display:block; margin:1rem auto 0; max-width:70%; height:auto;">
+
+      <!-- 说明文字 -->
+      <h3 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
+        <span class="has-text-weight-bold has-text-link">Curriculum Learning–based Self-Improvement.</span>
+        As generation and understanding improve together, difficult samples that pre-trained MLLMs could not previously utilize
+        (due to weak generation or inaccurate understanding) can be incorporated later, forming an adaptive data expansion
+        process based on prompt complexity.
+      </h3>
+    </div>
+  </div>
+</section>
+
+<!-- Improved Method (2/2): Main Results -->
+<section class="section teaser">
+  <div class="container is-max-desktop">
+
+    <!-- 标题（蓝色，与上面一致） -->
+    <h2 class="title is-3 has-text-link has-text-centered">
+      Improved Method: Curriculum Learning for Stronger Self-Improvement
+    </h2>
+    <div class="title-underline has-text-link"></div>
+
+    <!-- 浅蓝色卡片 -->
+    <div class="box" style="background-color:#f8f9ff; border-radius:12px; padding:1.5rem; margin-top:1.5rem;">
+
+      <!-- 图（正常宽度） -->
+      <img src="static/images/main-results.png" alt="Main results" loading="lazy" style="display:block; margin:1rem auto 0; height:auto;">
+
+      <!-- 说明文字（你的文字注释已合并） -->
+      <h3 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
+        <span class="has-text-weight-bold has-text-link">Curriculum Learning–based Self-Improvement.</span>
+        Curriculum learning–based self-improvement (<em>C-SFT</em>) yields better generation (higher Gen.) and understanding (higher Und.) 
+        and alleviates non-unification (lower Non.). It even surpasses baselines that rely on external reward models, 
+        such as T2I-R1 (built on Janus-Pro-7B) and HermesFlow (built on Show-o).
+      </h3>
+    </div>
+  </div>
+</section>
+
+
+
+
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
