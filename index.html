@@ -179,14 +179,17 @@
   }
   </script>
 
-  <!-- MathJax for LaTeX rendering -->
+  <!-- MathJax v3: 支持 $...$ 与 \(...\) 行内公式，并启用 \text{} -->
   <script>
     window.MathJax = {
-      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        packages: {'[+]': ['textmacros']}  // 让 \text{} 可用
+      },
       svg: { fontCache: 'global' }
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
   
 
   <script>
@@ -467,8 +470,14 @@
 
       <!-- 说明文字 -->
       <h2 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
-        <span class="has-text-weight-bold has-text-link">Self-improvement enhances generation and unification, with gains up to 20% and 16% (1–non-unification score).</span> Furthermore, improvements correlate with the internal gap (correlation coefficient $\\rho_{\\Delta,\\text{Non.}}=0.53$): models and subtasks with larger gaps benefit more.
+        <span class="has-text-weight-bold has-text-link">
+          Self-improvement enhances generation and unification, with gains up to 20% and 16% (1–non-unification score).
+        </span>
+        Furthermore, improvements correlate with the internal gap 
+        (correlation coefficient \( \\rho_{\\Delta,\\text{Non.}} = 0.53 \)): 
+        models and subtasks with larger gaps benefit more.
       </h2>
+
     </div>
   </div>
 </section>
