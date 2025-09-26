@@ -315,7 +315,7 @@
     <!-- <div class="title-underline has-text-link"></div> -->
 
     <!-- 灰色背景卡片 -->
-    <div class="box" style="background-color: #f5f7fa; border-radius: 12px; padding: 2rem;">
+    <div class="box" style="background-color: #f8f9ff; border-radius: 12px; padding: 2rem;">
       <div class="has-text-centered">
         <!-- 图片 -->
         <img src="static/images/self-contradictory.png" alt="MLLMs' internal gap"/>
@@ -353,27 +353,24 @@
 <!-- Abstract Section -->
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <!-- 标题（蓝色 + 下划线） -->
-        <h2 class="title is-3 has-text-link has-text-centered">
-          Abstract
-        </h2>
-        <div class="title-underline has-text-link"></div>
+    <!-- 标题（蓝色 + 下划线） -->
+    <h2 class="title is-3 has-text-link has-text-centered">
+      Abstract
+    </h2>
+    <div class="title-underline has-text-link"></div>
 
-        <!-- 灰色卡片（不铺满） -->
-        <div class="box" style="background-color: #f5f7fa; border-radius: 12px; padding: 2rem;">
-          <div class="content has-text-justified">
-            <p>
-              Although unified MLLMs aim to unify generation and understanding, they are considered to exhibit an internal gap, with understanding outperforming generation. Through large-scale evaluation across multiple MLLMs and tasks, we confirm the widespread non-unification of MLLMs, and demonstrate that it indeed stems from weak generation rather than misunderstanding. This finding motivates us to propose a simple yet effective internal gap-based self-improvement framework, which mitigates internal gaps by leveraging stronger understanding to guide weaker generation without relying on any external signals. We validate this strategy through comprehensive experiments: scoring generations with understanding to construct image data for post-training (e.g., SFT and DPO) significantly improves generation while promoting unification. Furthermore, we empirically discover a co-improvement effect of such self-improvement, a phenomenon well known in pre-training but underexplored in post-training. Specifically, as generation improves, understanding becomes more effective at detecting false positives that were previously misclassified as prompt-aligned. To explain this effect, we extend learning dynamic theory to the MLLM setting, showing that the shared empirical neural tangent kernel between generation and understanding encourages aligned learning dynamics, thereby driving co-improvement. This interplay between generation and understanding further motivates a curriculum learning approach for stronger self-improvement: progressively enhanced understanding and generation revisit samples underutilized by pre-trained MLLMs, dynamically expanding post-training data and leading to improved performance.
-            </p>
-          </div>
-        </div>
+    <!-- 灰色卡片（和 Teaser Image 一样宽） -->
+    <div class="box" style="background-color: #f8f9ff; border-radius: 12px; padding: 2rem; margin-top: 1.5rem;">
+      <div class="content has-text-justified">
+        <p>
+          Although unified MLLMs aim to unify generation and understanding, they are considered to exhibit an internal gap, with understanding outperforming generation. Through large-scale evaluation across multiple MLLMs and tasks, we confirm the widespread non-unification of MLLMs, and demonstrate that it indeed stems from weak generation rather than misunderstanding. This finding motivates us to propose a simple yet effective internal gap-based self-improvement framework, which mitigates internal gaps by leveraging stronger understanding to guide weaker generation without relying on any external signals. We validate this strategy through comprehensive experiments: scoring generations with understanding to construct image data for post-training (e.g., SFT and DPO) significantly improves generation while promoting unification. Furthermore, we empirically discover a co-improvement effect of such self-improvement, a phenomenon well known in pre-training but underexplored in post-training. Specifically, as generation improves, understanding becomes more effective at detecting false positives that were previously misclassified as prompt-aligned. To explain this effect, we extend learning dynamic theory to the MLLM setting, showing that the shared empirical neural tangent kernel between generation and understanding encourages aligned learning dynamics, thereby driving co-improvement. This interplay between generation and understanding further motivates a curriculum learning approach for stronger self-improvement: progressively enhanced understanding and generation revisit samples underutilized by pre-trained MLLMs, dynamically expanding post-training data and leading to improved performance.
+        </p>
       </div>
     </div>
   </div>
 </section>
 <!-- End Abstract Section -->
+
 
 
 <!-- Image carousel (title changes with slide) -->
@@ -386,11 +383,11 @@
     <div class="title-underline has-text-link"></div>
 
     <!-- 灰色卡片 -->
-    <div class="box" style="background-color: #f5f7fa; border-radius: 12px; padding: 2rem; margin-top: 1.5rem;">
+    <div class="box" style="background-color: #f8f9ff; border-radius: 12px; padding: 2rem; margin-top: 1.5rem;">
       <div id="results-carousel-1" class="carousel results-carousel">
         
         <!-- Slide 1 -->
-        <div class="item" data-title="Phenomenon: Unified MLLMs remain non-unified with understanding outperforms generation">
+        <div class="item" data-title="Phenomenon: Pervasive Non-unification Mainly Stems from Weak Understanding">
           <img src="static/images/nonunification_single.png" 
                alt="Verification of internal gaps" loading="lazy"/>
           <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
