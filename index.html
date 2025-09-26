@@ -549,11 +549,16 @@
         <!-- Slide 1 -->
         <div class="item" data-title="Proposition Evidence">
           <img src="static/images/proposition 1.png" alt="Learning dynamics proposition" loading="lazy"/>
-          <h3 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
-            <span class="has-text-weight-bold has-text-link">Theoretical Proposition.</span>
-            Self-improvement enhances generation and unification, with gains up to 20% and 16% (1–non-unification score). 
-            Improvements are explained by the alignment of empirical neural tangent kernel (eNTK) between two branches.
-          </h3>
+         <h3 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
+          <span class="has-text-weight-bold has-text-link">Theoretical Proposition.</span>
+          The learning dynamics of generation \((\Delta G_t\) in \(\Cref{eq:gen-main})\) and understanding
+          \((\Delta U_t\) in \(\Cref{eq:und-main})\) are similar. The key difference is that
+          \(\Delta U_t\) includes an additional eNTK term,
+          \(\textcolor{#ef4444}{\mathcal{K}^{\,t}_{k,r}(\mathcal{Y}_i,\mathcal{Y}_u)}\),
+          which measures alignment between \(\mathcal{Y}_i\) \((i\neq 0)\) and the post-training data
+          \(\mathcal{Y}_u\).
+        </h3>
+
         </div>
 
         <!-- Slide 2 -->
