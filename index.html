@@ -377,38 +377,41 @@
 
 
 <!-- Image carousel (title changes with slide) -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <!-- 标题：给它一个 id，供脚本更新 -->
-    <h2 id="carousel-title-1" class="title is-3">
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- 蓝色标题 -->
+    <h2 id="carousel-title-1" class="title is-3 has-text-link has-text-centered">
       Phenomenon: Unified MLLMs remain non-unified with understanding outperforms generation
     </h2>
+    <div class="title-underline has-text-link"></div>
 
-    <div class="container">
+    <!-- 灰色卡片 -->
+    <div class="box" style="background-color: #f5f7fa; border-radius: 12px; padding: 2rem; margin-top: 1.5rem;">
       <div id="results-carousel-1" class="carousel results-carousel">
         
-        <!-- Slide 1：在 data-title 中放标题文本 -->
+        <!-- Slide 1 -->
         <div class="item" data-title="Phenomenon: Unified MLLMs remain non-unified with understanding outperforms generation">
           <img src="static/images/nonunification_single.png" 
                alt="Verification of internal gaps" loading="lazy"/>
-          <h2 class="subtitle has-text-centered">
+          <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
             <span class="has-text-weight-bold">Verification of internal gaps.</span> (a) and (b) identify task difficulty as a confounder in measuring non-unification score (Non.): easy tasks may underestimate the gap, while hard tasks risk overestimation. Stratifying by task difficulty (Easy–Medium–Hard) yields a more reliable estimation. (c) Evaluation of six MLLMs across three difficulty levels shows unified MLLMs remain non-unified, with non-unification scores approaching 60%.
           </h2>
         </div>
         
-        <!-- Slide 2：切到这一页时，标题会自动换成下方 data-title 的内容 -->
+        <!-- Slide 2 -->
         <div class="item" data-title="Internal gap mainly stems from weak generation instead of misunderstanding">
           <img src="static/images/reason.png" 
                alt="Weak generation explanation" loading="lazy"/>
-          <h2 class="subtitle has-text-centered">
+          <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
             <span class="has-text-weight-bold">Internal gap mainly stems from weak generation instead of misunderstanding.</span> Weak-generation (Qwen/Human-checked) above 50% (even 100%) indicate internal gap mainly stems from weak generation.
           </h2>
         </div>
 
       </div> <!-- end results-carousel-1 -->
-    </div>   <!-- end container -->
-  </div>     <!-- end hero-body -->
+    </div> <!-- end box -->
+  </div> <!-- end container -->
 </section>
+
 
 
 
