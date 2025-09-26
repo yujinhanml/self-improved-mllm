@@ -331,7 +331,7 @@
         <img src="static/images/self-contradictory.png" alt="MLLMs' internal gap"/>
         
         <!-- 图片说明 -->
-        <h3 class="has-text-centered is-size-8" style="margin-top: .75rem;">
+        <h3 class="has-text-justified is-size-8" style="margin-top: .75rem;">
           <span class="has-text-weight-bold has-text-link">Illustration of MLLMs' internal gap.</span> We examine challenging cases involving implicit 
           physical principles using ChatGPT o3 and Gemini 2.5 Flash, and find: images produced 
           by generation branch are identified as incorrect by understanding branch, showing 
@@ -400,7 +400,7 @@
         <div class="item" data-title="Phenomenon: Pervasive Non-unification Mainly Stems from Weak Generation">
           <img src="static/images/nonunification_single.png" 
                alt="Verification of internal gaps" loading="lazy"/>
-          <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+          <h2 class="subtitle has-text-justified" style="margin-top: 1rem;">
             <span class="has-text-weight-bold has-text-link">Verification of internal gaps.</span> (a) and (b) identify task difficulty as a confounder in measuring non-unification score (Non.): easy tasks may underestimate the gap, while hard tasks risk overestimation. Stratifying by task difficulty (Easy–Medium–Hard) yields a more reliable estimation. (c) Evaluation of six MLLMs across three difficulty levels shows unified MLLMs remain non-unified, with non-unification scores approaching 60%.
           </h2>
         </div>
@@ -409,7 +409,7 @@
         <div class="item" data-title="Internal gap mainly stems from weak generation instead of misunderstanding">
           <img src="static/images/reason.png" 
                alt="Weak generation explanation" loading="lazy"/>
-          <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+          <h2 class="subtitle has-text-justified" style="margin-top: 1rem;">
             <span class="has-text-weight-bold has-text-link">Internal gap mainly stems from weak generation instead of misunderstanding.</span> Weak-generation (Qwen/Human-checked) above 50% (even 100%) indicate internal gap mainly stems from weak generation.
           </h2>
         </div>
@@ -423,35 +423,30 @@
 <!-- Teaser Image -->
 <section class="section teaser">
   <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths has-text-centered">
 
-        <!-- 标题（蓝色） -->
-        <h2 class="title is-3 has-text-link">
-          Method: Internal Gap-based Self-Improvement
-        </h2>
-        <div class="title-underline has-text-link"></div>
+    <!-- 标题（蓝色） -->
+    <h2 class="title is-3 has-text-link has-text-centered">
+      Method: Internal Gap-based Self-Improvement
+    </h2>
+    <div class="title-underline has-text-link"></div>
 
-        <!-- 浅蓝色背景卡片 -->
-        <div class="box" style="background-color: #f8f9ff; border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem;">
+    <!-- 卡片放在 container 下，宽度与其他一致 -->
+    <div class="box" style="background-color:#f8f9ff; border-radius:12px; padding:1.5rem; margin-top:1.5rem;">
 
-          <!-- 图片（缩小到 70% 宽度并居中） -->
-          <img src="static/images/alg1.png" alt="MLLMs' internal gap" 
-               style="margin-top: 1rem; max-width: 70%; height: auto;"/>
+      <!-- 图片（仅缩小 70%，不影响卡片宽度） -->
+      <img src="static/images/alg1.png" alt="MLLMs' internal gap"
+           style="display:block; margin:1rem auto 0; max-width:70%; height:auto;">
 
-          <!-- 说明文字 -->
-          <h2 class="subtitle has-text-justified" style="font-size: 1rem; margin-top: 1rem;">
-            Scoring generations with stronger understanding to construct image data for post-training 
-            (e.g., SFT and DPO) on generation branch.
-          </h2>
-
-        </div>
-
-      </div>
+      <!-- 说明文字 -->
+      <h2 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
+        Scoring generations with stronger understanding to construct image data for post-training
+        (e.g., SFT and DPO) on the generation branch.
+      </h2>
     </div>
   </div>
 </section>
 <!-- End Teaser Image -->
+
 
 
 
