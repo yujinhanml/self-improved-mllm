@@ -586,57 +586,6 @@
 <!-- End Mechanism Section -->
 
 
-<!-- Improved Method -->
-<section class="section teaser">
-  <div class="container is-max-desktop">
-
-    <!-- 标题（蓝色） -->
-    <h2 class="title is-3 has-text-link has-text-centered">
-      Improved Method: Curriculum Learning for Stronger Self-Improvement
-    </h2>
-    <div class="title-underline has-text-link"></div>
-
-    <!-- 卡片包裹轮播 -->
-    <div class="box" style="background-color:#f8f9ff; border-radius:12px; padding:1.5rem; margin-top:1.5rem;">
-      <div id="results-carousel-2" class="carousel results-carousel">
-
-        <!-- Slide 1 -->
-        <div class="item" data-title="Proposition Evidence">
-          <img src="static/images/proposition 1.png" alt="Learning dynamics proposition" loading="lazy"/>
-         <h3 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
-          <span class="has-text-weight-bold has-text-link">Shared eNTK between Understanding and Generation.</span>
-          The learning dynamics of generation  \(\Delta G_t\) and understanding
-           \(\Delta U_t\) are similar. The key difference is that
-          \(\Delta U_t\) includes an additional eNTK term,
-          \(\textcolor{#ef4444}{\mathcal{K}^{\,t}_{k,r}(\mathcal{Y}_i,\mathcal{Y}_u)}\),
-          which measures alignment between \(\mathcal{Y}_i\) \((i\neq 0)\) and the post-training data
-          \(\mathcal{Y}_u\).
-        </h3>
-
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="item" data-title="Empirical Evidence">
-          <img src="static/images/evidence.png" alt="Empirical evidence of co-improvement" loading="lazy"/>
-          <h3 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
-            <span class="has-text-weight-bold has-text-link">Empirical Evidence from Self-improved Janus-Pro with SFT.</span>
-            (a) Compared to random samples, $(\mathbf{y}_0,\mathbf{x}_0)$ in the false positive correction group 
-            are more likely to be matched with highly similar post-training pairs $(\mathbf{y}_u,\mathbf{x}_u)$. 
-            (b) Such high data similarity makes $\textcolor{lightblue}{\mathcal{K}^{\,t}_{k,r}(\mathcal{Y}_0,\mathcal{Y}_u)}$ 
-            be the dominant term, thereby promoting aligned learning dynamics $\Delta G_t$ and $\Delta U_t$. 
-            (c) With aligned dynamics, $\Delta G_t < 0$ implies $\Delta U_t < 0$: both the probability of 
-            mis-generation $\pi_{\theta}(\mathbf{x}_0 \mid \mathbf{y}_0)$ and misjudging  
-            $\pi_{\theta}(\mathbf{y}_0 \mid \mathbf{x}_0)$ are reduced, i.e., false positive correction and 
-            co-improvement occur.
-          </h3>
-        </div>
-
-      </div> <!-- end carousel -->
-    </div> <!-- end box -->
-  </div>
-</section>
-<!-- End Mechanism Section -->
-
               
 <!-- Improved Method (1/2): Curriculum Learning Overview -->
 <section class="section teaser">
