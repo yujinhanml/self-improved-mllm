@@ -262,14 +262,6 @@ h2.title::after {
   padding: 1rem 0;
 }
 
-.title-underline{
-  width: 60px;             /* 长度 */
-  height: 3px;             /* 粗细 */
-  background-color: currentColor; /* 用当前文本色，便于跟标题颜色一致 */
-  margin: 0.5rem auto 1.5rem;     /* 居中 + 间距 */
-  border-radius: 2px;       /* 圆角两端 */
-}
-
 .results-carousel .item {
   margin: 1rem;
   overflow: hidden;
@@ -760,6 +752,15 @@ a:focus {
     box-shadow: none !important;
   }
 }
+
+.title-underline {
+  width: 60px;
+  height: 3px;
+  background-color: currentColor;
+  margin: 0.4rem auto 1rem; /* 上面 0.4rem，下面 1rem */
+  border-radius: 2px;
+}
+
 
 
 
