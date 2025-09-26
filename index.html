@@ -559,9 +559,15 @@
         <div class="item" data-title="Empirical Evidence">
           <img src="static/images/evidence.png" alt="Empirical evidence of co-improvement" loading="lazy"/>
           <h3 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
-            <span class="has-text-weight-bold has-text-link">Empirical Evidence.</span>
-            Empirical results confirm that improvements in generation positively correlate with improvements 
-            in understanding, supporting the shared learning dynamics hypothesis.
+            <span class="has-text-weight-bold has-text-link">Empirical Evidence from Self-improved Janus-Pro with SFT.</span>
+            (a) Compared to random samples, $(\mathbf{y}_0,\mathbf{x}_0)$ in the false positive correction group 
+            are more likely to be matched with highly similar post-training pairs $(\mathbf{y}_u,\mathbf{x}_u)$. 
+            (b) Such high data similarity makes $\textcolor{lightblue}{\mathcal{K}^{\,t}_{k,r}(\mathcal{Y}_0,\mathcal{Y}_u)}$ 
+            be the dominant term, thereby promoting aligned learning dynamics $\Delta G_t$ and $\Delta U_t$. 
+            (c) With aligned dynamics, $\Delta G_t < 0$ implies $\Delta U_t < 0$: both the probability of 
+            mis-generation $\pi_{\theta}(\mathbf{x}_0 \mid \mathbf{y}_0)$ and misjudging  
+            $\pi_{\theta}(\mathbf{y}_0 \mid \mathbf{x}_0)$ are reduced, i.e., false positive correction and 
+            co-improvement occur.
           </h3>
         </div>
 
