@@ -531,7 +531,7 @@
 </section>
 
 
-<!-- Teaser Image -->
+<!-- Mechanism Section -->
 <section class="section teaser">
   <div class="container is-max-desktop">
 
@@ -541,24 +541,36 @@
     </h2>
     <div class="title-underline has-text-link"></div>
 
-    <!-- 卡片放在 container 下，宽度与其他一致 -->
+    <!-- 卡片包裹轮播 -->
     <div class="box" style="background-color:#f8f9ff; border-radius:12px; padding:1.5rem; margin-top:1.5rem;">
+      <div id="results-carousel-2" class="carousel results-carousel">
 
-      <img src="static/images/proposition 1.png" alt="MLLMs' internal gap"
-           alt="find 1" loading="lazy"/>
+        <!-- Slide 1 -->
+        <div class="item" data-title="Proposition Evidence">
+          <img src="static/images/proposition 1.png" alt="Learning dynamics proposition" loading="lazy"/>
+          <h3 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
+            <span class="has-text-weight-bold has-text-link">Theoretical Proposition.</span>
+            Self-improvement enhances generation and unification, with gains up to 20% and 16% (1–non-unification score). 
+            Improvements are explained by the alignment of empirical neural tangent kernel (eNTK) between two branches.
+          </h3>
+        </div>
 
-      <!-- 说明文字 -->
-      <h2 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
-        <span class="has-text-weight-bold has-text-link">
-          Self-improvement enhances generation and unification, with gains up to 20% and 16% (1–non-unification score).
-        </span>
-        Furthermore, improvements correlate with the internal gap 
-      </h2>
+        <!-- Slide 2 -->
+        <div class="item" data-title="Empirical Evidence">
+          <img src="static/images/evidence.png" alt="Empirical evidence of co-improvement" loading="lazy"/>
+          <h3 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
+            <span class="has-text-weight-bold has-text-link">Empirical Evidence.</span>
+            Empirical results confirm that improvements in generation positively correlate with improvements 
+            in understanding, supporting the shared learning dynamics hypothesis.
+          </h3>
+        </div>
 
-    </div>
+      </div> <!-- end carousel -->
+    </div> <!-- end box -->
   </div>
 </section>
-<!-- End Teaser Image -->
+<!-- End Mechanism Section -->
+
 
 
 <!--BibTex citation -->
