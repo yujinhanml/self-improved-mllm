@@ -258,6 +258,14 @@ body {
   padding: 1rem 0;
 }
 
+.title-underline{
+  width: 60px;             /* 长度 */
+  height: 3px;             /* 粗细 */
+  background-color: currentColor; /* 用当前文本色，便于跟标题颜色一致 */
+  margin: 0.5rem auto 1.5rem;     /* 居中 + 间距 */
+  border-radius: 2px;       /* 圆角两端 */
+}
+
 .results-carousel .item {
   margin: 1rem;
   overflow: hidden;
