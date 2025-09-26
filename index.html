@@ -464,7 +464,7 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // 1) 初始化轮播（如果别处已初始化，这里 attach 不会出错）
+  // 1) 初始化轮播
   if (typeof bulmaCarousel !== 'undefined') {
     bulmaCarousel.attach('#results-carousel-1', {
       slidesToScroll: 1,
@@ -473,52 +473,57 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  const root   = document.getElementById('results-carousel-1');
+  const root    = document.getElementById('results-carousel-1');
   const titleEl = document.getElementById('carousel-title-1');
   if (!root || !titleEl) return;
 
-  // 根据“激活的 .carousel-item”或“激活的分页圆点”来更新标题
-  function updateTitle() {
-    // 优先：从激活的 carousel-item 下的 .item 读取 data-title
-    let activeItem = root.querySelector('.carousel-item.is-active .item');
-    if (!activeItem) {
-      // 兼容一些版本：直接找第一个 .item 当兜底
-      // 或者根据分页圆点定位索引
-      const dots = root.querySelectorAll('.carousel-pagination li');
-      const idx = Array.from(dots).findIndex(li => li.classList.contains('is-active'));
-      const items = root.querySelectorAll('.item');
-      if (idx >= 0 && items[idx]) activeItem = items[idx];
-      else if (items.length) activeItem = items[0];
-    }
-    if (activeItem && activeItem.dataset && activeItem.dataset.title) {
-      titleEl.textContent = activeItem.dataset.title;
-    }
+  function getActiveSlideEl() {
+    return root.querySelector('.carousel-item.is-active') 
+        || root.querySelector('.item.is-active') 
+        || root.querySelector('.carousel-item') 
+        || root.querySelector('.item');
   }
 
-  // 初始设置一次（等待轮播把 DOM 包装好）
-  setTimeout(updateTitle, 0);
+  function updateTitle() {
+    const active = getActiveSlideEl();
+    if (!active) return;
 
-  // 2) 监听 class 变化（轮播切换时会在 .carousel-item 上切换 is-active）
+    // data-title 可能在当前 slide 元素上（推荐），也可能在其内部
+    let elWithTitle = active;
+    if (!elWithTitle.dataset || !elWithTitle.dataset.title) {
+      elWithTitle = active.querySelector('[data-title]') || active;
+    }
+    const t = (elWithTitle.dataset && elWithTitle.dataset.title) ? elWithTitle.dataset.title : titleEl.textContent;
+    titleEl.textContent = t;
+  }
+
+  // 初始更新（等一帧，让 bulma-carousel 完成 DOM 标记）
+  requestAnimationFrame(updateTitle);
+
+  // 监听 class 变化（切换时 is-active 会变）
   const mo = new MutationObserver(updateTitle);
   mo.observe(root, { attributes: true, subtree: true, attributeFilter: ['class'] });
 
-  // 3) 兼容：左右箭头 / 分页点击后也触发一次
-  root.addEventListener('click', function (e) {
+  // 兼容：点击左右箭头 / 圆点后再更新一次
+  root.addEventListener('click', (e) => {
     if (e.target.closest('.carousel-nav') || e.target.closest('.carousel-pagination')) {
-      setTimeout(updateTitle, 0);
+      requestAnimationFrame(updateTitle);
     }
   });
 
-  // 4) 保险：轮播有时会触发这些自定义事件；若有就再挂上
+  // 若拿得到实例，挂官方事件
   if (typeof bulmaCarousel !== 'undefined' && bulmaCarousel.instances && bulmaCarousel.instances.length) {
     const inst = bulmaCarousel.instances.find(i => i.element === root) || bulmaCarousel.instances[0];
     if (inst && typeof inst.on === 'function') {
       inst.on('after:show', updateTitle);
       inst.on('after:slide', updateTitle);
+      // 某些版本还有 init 事件
+      inst.on('after:init', updateTitle);
     }
   }
 });
 </script>
+
 
 
 
