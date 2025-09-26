@@ -350,8 +350,10 @@
           </h3>
           <div class="content">
             <ul>
-              <li>Unified MLLMs exhibit an internal gap: understanding typically outperforms generation.</li>
-              <li>The gap mainly stems from weak generation rather than misunderstanding, motivating an internal gap-based self-improvement strategy.</li>
+              <li>Non-unification is pervasive in unified MLLMs, with understanding typically outperforming generation..</li>
+              <li>Internal-gap–based self-improvement, which leverages the stronger understanding branch to guide the generation branch, effectively improves generation and promotes unification in MLLMs.</li>
+              <li>Self-improvement induces co-improvement in generation and understanding because unified MLLMs share the same empirical neural tangent kernel, which encourages aligned learning dynamics.</li>
+              <li>One way to capitalize on co-improvement is curriculum learning: progressively stronger generation and understanding revisit samples underutilized by pre-trained MLLMs, expanding post-training data and boosting performance and unification.</li>
             </ul>
           </div>
         </div>
@@ -682,9 +684,8 @@
 
       <!-- 说明文字（你的文字注释已合并） -->
       <h3 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
-        <span class="has-text-weight-bold has-text-link">Curriculum Learning–based Self-Improvement.</span>
-        Curriculum learning–based self-improvement (<em>C-SFT</em>) yields better generation (higher Gen.) and understanding (higher Und.) 
-        and alleviates non-unification (lower Non.). It even surpasses baselines that rely on external reward models, 
+        <span class="has-text-weight-bold has-text-link">Curriculum Learning–based Self-Improvement (<em>C-SFT</em>) </span>
+        yields better generation (higher Gen.) and understanding (higher Und.) and alleviates non-unification (lower Non.). It even surpasses baselines that rely on external reward models, 
         such as T2I-R1 (built on Janus-Pro-7B) and HermesFlow (built on Show-o).
       </h3>
     </div>
