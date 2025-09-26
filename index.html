@@ -108,6 +108,7 @@
   <script defer src="static/js/bulma-carousel.min.js"></script>
   <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   
   <!-- Structured Data for Academic Papers -->
   <script type="application/ld+json">
@@ -177,6 +178,39 @@
     ]
   }
   </script>
+
+  <script>
+  $(document).ready(function() {
+    // 初始化轮播图
+    bulmaCarousel.attach('#results-carousel-1', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      infinite: false
+    });
+    
+    // 获取轮播图实例
+    const carousel = bulmaCarousel.attach('#results-carousel-1')[0];
+    
+    // 标题更新函数
+    function updateTitle() {
+      const activeSlide = $('.carousel-item.is-active .item');
+      const newTitle = activeSlide.data('title');
+      $('#carousel-title-1').text(newTitle);
+    }
+    
+    // 初始加载时更新标题
+    updateTitle();
+    
+    // 监听轮播图切换事件
+    carousel.on('after:show', updateTitle);
+    
+    // 兼容性处理：监听分页按钮点击
+    $('.carousel-pagination li').on('click', function() {
+      setTimeout(updateTitle, 100); // 等待动画完成
+    });
+  });
+  </script>
+
 </head>
 <body>
 
