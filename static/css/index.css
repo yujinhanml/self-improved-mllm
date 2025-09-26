@@ -761,6 +761,15 @@ a:focus {
   border-radius: 2px;
 }
 
+h2.title + .title-underline {
+  margin-top: 0.3rem;       /* 横线距离标题上方 */
+}
+
+h2.title.is-3 {
+  margin-bottom: 0.5rem;    /* 原来是 1.5rem，缩小 */
+}
+
+
 
 
 
