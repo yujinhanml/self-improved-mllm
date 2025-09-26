@@ -461,49 +461,65 @@
 <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
     <!-- End of Statcounter Code -->
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  if (typeof bulmaCarousel === 'undefined') return;
+  // 1) 初始化轮播（如果别处已初始化，这里 attach 不会出错）
+  if (typeof bulmaCarousel !== 'undefined') {
+    bulmaCarousel.attach('#results-carousel-1', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      infinite: false
+    });
+  }
 
-  // 初始化并拿到实例
-  const instances = bulmaCarousel.attach('#results-carousel-1', {
-    slidesToScroll: 1,
-    slidesToShow: 1,
-    infinite: false
-  });
-  const inst = instances && instances[0];
-  if (!inst) return;
-
-  const root = document.getElementById('results-carousel-1');
+  const root   = document.getElementById('results-carousel-1');
   const titleEl = document.getElementById('carousel-title-1');
   if (!root || !titleEl) return;
 
-  // 从当前激活的 slide 读取 data-title（兼容不同版本结构）
-  function updateTitleFromActive() {
-    // bulma-carousel 会包一层 .carousel-item.is-active
-    const active = root.querySelector('.carousel-item.is-active .item')
-                 || root.querySelector('.item'); // 兜底
-    if (active && active.dataset && active.dataset.title) {
-      titleEl.textContent = active.dataset.title;
+  // 根据“激活的 .carousel-item”或“激活的分页圆点”来更新标题
+  function updateTitle() {
+    // 优先：从激活的 carousel-item 下的 .item 读取 data-title
+    let activeItem = root.querySelector('.carousel-item.is-active .item');
+    if (!activeItem) {
+      // 兼容一些版本：直接找第一个 .item 当兜底
+      // 或者根据分页圆点定位索引
+      const dots = root.querySelectorAll('.carousel-pagination li');
+      const idx = Array.from(dots).findIndex(li => li.classList.contains('is-active'));
+      const items = root.querySelectorAll('.item');
+      if (idx >= 0 && items[idx]) activeItem = items[idx];
+      else if (items.length) activeItem = items[0];
+    }
+    if (activeItem && activeItem.dataset && activeItem.dataset.title) {
+      titleEl.textContent = activeItem.dataset.title;
     }
   }
 
-  // 初始设置
-  updateTitleFromActive();
+  // 初始设置一次（等待轮播把 DOM 包装好）
+  setTimeout(updateTitle, 0);
 
-  // 监听不同版本可能触发的事件
-  inst.on('after:show', updateTitleFromActive);
-  inst.on('after:slide', updateTitleFromActive);
+  // 2) 监听 class 变化（轮播切换时会在 .carousel-item 上切换 is-active）
+  const mo = new MutationObserver(updateTitle);
+  mo.observe(root, { attributes: true, subtree: true, attributeFilter: ['class'] });
 
-  // 保险：左右箭头点击时也更新一次（有些版本只触发 click）
+  // 3) 兼容：左右箭头 / 分页点击后也触发一次
   root.addEventListener('click', function (e) {
     if (e.target.closest('.carousel-nav') || e.target.closest('.carousel-pagination')) {
-      // 下一帧读取，确保切换完成
-      setTimeout(updateTitleFromActive, 0);
+      setTimeout(updateTitle, 0);
     }
   });
+
+  // 4) 保险：轮播有时会触发这些自定义事件；若有就再挂上
+  if (typeof bulmaCarousel !== 'undefined' && bulmaCarousel.instances && bulmaCarousel.instances.length) {
+    const inst = bulmaCarousel.instances.find(i => i.element === root) || bulmaCarousel.instances[0];
+    if (inst && typeof inst.on === 'function') {
+      inst.on('after:show', updateTitle);
+      inst.on('after:slide', updateTitle);
+    }
+  }
 });
 </script>
+
 
 
   </body>
