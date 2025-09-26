@@ -179,6 +179,16 @@
   }
   </script>
 
+  <!-- MathJax for rendering LaTeX -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+
   <script>
   $(document).ready(function() {
     // 初始化轮播图
@@ -387,7 +397,7 @@
       <div id="results-carousel-1" class="carousel results-carousel">
         
         <!-- Slide 1 -->
-        <div class="item" data-title="Phenomenon: Pervasive Non-unification Mainly Stems from Weak Understanding">
+        <div class="item" data-title="Phenomenon: Pervasive Non-unification Mainly Stems from Weak Generation">
           <img src="static/images/nonunification_single.png" 
                alt="Verification of internal gaps" loading="lazy"/>
           <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
@@ -413,27 +423,39 @@
 
 
 <!-- Teaser Image -->
-<section class="section hero is-light">
+<section class="section teaser">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths has-text-centered">
 
-        <!-- 左上角标题（可选） -->
-        <h2 class="title is-3">Method: Internal Gap-based Self-Improvement</h2>
+        <!-- 标题（蓝色） -->
+        <h2 class="title is-3 has-text-link">
+          Method: Internal Gap-based Self-Improvement
+        </h2>
+        <div class="title-underline has-text-link"></div>
 
         <!-- 图片 -->
-        <img src="static/images/self-contradictory.png" alt="MLLMs' internal gap"/>
+        <img src="static/images/alg1.png" alt="MLLMs' internal gap" style="margin-top: 1rem;"/>
 
-        <!-- 说明文字 -->
-        <h2 class="subtitle has-text-centered">
-          Illustration of MLLMs' internal gap. We examine challenging cases involving implicit physical principles using ChatGPT o3 and Gemini 2.5 Flash, and find: images produced by generation branch are identified as incorrect by understanding branch, showing non-unification.
-        </h2>
+        <!-- 浅蓝色背景卡片 -->
+        <div class="box" style="background-color: #f8f9ff; border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem;">
+          <h2 class="subtitle has-text-justified" style="font-size: 1rem;">
+            The observation that understanding consistently outperforms generation then motivates our 
+            <em>internal gap-based self-improvement</em> framework. Specifically, we adopt DPO and SFT. 
+            Given an image generation prompt $\\mathbf{y}$, the MLLM $\\pi_{\\theta}$ produces $N$ 
+            candidate images: $\\{\\mathbf{x}_i\\}_{i=1}^N = \\pi_{\\theta}(\\mathbf{y})$. 
+            Each candidate $\\mathbf{x}_i$ is paired with the question 
+            $q(\\mathbf{y}) \\coloneqq \\text{``Does this image describe } \\mathbf{y} \\text{?''}$ 
+            and processed by the understanding branch $\\pi^{\\text{und}}_{\\theta}$.
+          </h2>
+        </div>
 
       </div>
     </div>
   </div>
 </section>
 <!-- End Teaser Image -->
+
 
 
 
