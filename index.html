@@ -619,7 +619,7 @@
   </div>
 </section>
 
-<!-- Improved Method (2/2): Main Results -->
+<!-- Improved Method (2/2): Main Results with Carousel -->
 <section class="section teaser">
   <div class="container is-max-desktop">
 
@@ -631,19 +631,55 @@
 
     <!-- 浅蓝色卡片 -->
     <div class="box" style="background-color:#f8f9ff; border-radius:12px; padding:1.5rem; margin-top:1.5rem;">
+      <div id="results-carousel-4" class="carousel results-carousel">
 
-      <!-- 图（正常宽度） -->
-      <img src="static/images/main-results.png" alt="Main results" loading="lazy" style="display:block; margin:1rem auto 0; height:auto;">
+        <!-- Slide 1 -->
+        <div class="item" data-title="Main Results">
+          <img src="static/images/main-results.png" alt="Main results" loading="lazy"
+               style="display:block; margin:1rem auto 0; height:auto;">
+          <h3 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
+            <span class="has-text-weight-bold has-text-link">Curriculum Learning–based Self-Improvement (<em>C-SFT</em>)</span>
+            yields better generation (higher Gen.) and understanding (higher Und.) and alleviates non-unification (lower Non.).
+            It even surpasses baselines that rely on external reward models, such as T2I-R1 (built on Janus-Pro-7B) and HermesFlow (built on Show-o).
+          </h3>
+        </div>
 
-      <!-- 说明文字（你的文字注释已合并） -->
-      <h3 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
-        <span class="has-text-weight-bold has-text-link">Curriculum Learning–based Self-Improvement (<em>C-SFT</em>) </span>
-        yields better generation (higher Gen.) and understanding (higher Und.) and alleviates non-unification (lower Non.). It even surpasses baselines that rely on external reward models, 
-        such as T2I-R1 (built on Janus-Pro-7B) and HermesFlow (built on Show-o).
-      </h3>
-    </div>
+        <!-- Slide 2 -->
+        <div class="item" data-title="T2I-CompBench++">
+          <img src="static/images/t2i-compbench++.png" alt="T2I-CompBench++ results" loading="lazy"
+               style="display:block; margin:1rem auto 0; height:auto;">
+          <h3 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
+            <span class="has-text-weight-bold has-text-link">Results on T2I-CompBench++.</span>
+            Self-improvement enhances MLLMs in generation, understanding, and unification, achieving results comparable to or even surpassing those of baselines that leverage external rewards
+          </h3>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="item" data-title="Geneval">
+          <img src="static/images/geneval.png" alt="Geneval results" loading="lazy"
+               style="display:block; margin:1rem auto 0; height:auto;">
+          <h3 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
+            <span class="has-text-weight-bold has-text-link">Results on Geneval.</span>
+            Self-improvement enhances MLLMs in generation, understanding, and unification, achieving results comparable to or even surpassing those of baselines that leverage external rewards.
+          </h3>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="item" data-title="Science-T2I">
+          <img src="static/images/science-t2i.png" alt="Science-T2I results" loading="lazy"
+               style="display:block; margin:1rem auto 0; height:auto;">
+          <h3 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
+            <span class="has-text-weight-bold has-text-link">Results on Science-T2I.</span>
+            Self-improvement enhances MLLMs in generation, understanding, and unification, achieving results comparable to or even surpassing those of baselines that leverage external rewards.
+          </h3>
+        </div>
+
+      </div> <!-- end carousel -->
+    </div> <!-- end box -->
   </div>
 </section>
+<!-- End Improved Method -->
+
 
 
 
