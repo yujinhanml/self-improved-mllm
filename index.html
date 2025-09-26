@@ -504,6 +504,8 @@
           <h3 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
             <span class="has-text-weight-bold has-text-link">Co-improvement Effect.</span>
             (a) shows an example where self-improved Janus-Pro generates prompt-aligned images and correctly scores the original as mismatched; (b) reports win rates mostly above 50%, indicating self-improved MLLMs judge prompt–image alignment more accurately than pre-trained ones.
+            <br><br>
+            Win rate is the proportion of cases where the self-improved MLLM disagrees with the pre-trained one but agrees with the stronger external judge, e.g., Qwen2.5-VL-72B-Instruct. For example, if the models disagree on three samples and the self-improved model matches Qwen on two, win rate is 2/3. 
           </h3>
         </div>
 
@@ -511,7 +513,7 @@
         <div class="item">
           <img src="static/images/find2-1.png" alt="Co-improvement example 1" loading="lazy"/>
           <h3 class="subtitle has-text-justified" style="font-size:1rem; margin-top:1rem;">
-            <span class="has-text-weight-bold has-text-link">Examples of co-improvements of self‑improved Janus-Pro and Show-o under SFT.</span> We observe that, after self‑improvement, Show-o and Janus-Pro generate images that align prompts and accurately identify when images produced by the pre‑trained MLLM are misaligned with the prompts
+            <span class="has-text-weight-bold has-text-link">Examples of co-improvements of self‑improved Janus-Pro and Show-o under SFT.</span> We observe that, after self‑improvement, Show-o and Janus-Pro generate images that align prompts and accurately identify when images produced by the pre‑trained MLLM are misaligned with the prompts.
           </h3>
         </div>
 
